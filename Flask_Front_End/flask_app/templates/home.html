@@ -1,0 +1,197 @@
+{%extends "layout.html"%} {% block head %}
+<!-- Page title -->
+<title>Unicorn</title>
+<!-- Link to respective CSS stylesheet -->
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}" />
+{% endblock %} 
+
+{% block content %} 
+<div class="container-fluid" style="padding: 70px 0;">
+<!-- <h1>Home page</h1> -->
+<div class="container-fluid grey-container" style="padding-bottom: 0; padding-top: 0;">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12" style="padding-top: 60px;">
+            <div class="hero-content show-on-scroll inline-photo"> 
+                <div id="bitcoin">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                       width="120px" height="120px" viewBox="100 100 400 400" xml:space="preserve">
+                      <filter id="dropshadow" height="130%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+                    <feOffset dx="0" dy="0" result="offsetblur"/>
+                    <feFlood flood-color="red"/>
+                  <feComposite in2="offsetblur" operator="in"/>
+                  <feMerge>
+                  <feMergeNode/>
+                  <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                  </filter>          
+                  <path class="path" style="filter:url(#dropshadow)" fill="#000000" d="M446.089,261.45c6.135-41.001-25.084-63.033-67.769-77.735l13.844-55.532l-33.801-8.424l-13.48,54.068
+                      c-8.896-2.217-18.015-4.304-27.091-6.371l13.568-54.429l-33.776-8.424l-13.861,55.521c-7.354-1.676-14.575-3.328-21.587-5.073
+                      l0.034-0.171l-46.617-11.64l-8.993,36.102c0,0,25.08,5.746,24.549,6.105c13.689,3.42,16.159,12.478,15.75,19.658L208.93,357.23
+                      c-1.675,4.158-5.925,10.401-15.494,8.031c0.338,0.485-24.579-6.134-24.579-6.134l-9.631,40.468l36.843,9.188
+                      c8.178,2.051,16.209,4.19,24.098,6.217l-13.978,56.17l33.764,8.424l13.852-55.571c9.235,2.499,18.186,4.813,26.948,6.995
+                      l-13.802,55.309l33.801,8.424l13.994-56.061c57.648,10.902,100.998,6.502,119.237-45.627c14.705-41.979-0.731-66.193-31.06-81.984
+                      C425.008,305.984,441.655,291.455,446.089,261.45z M368.859,369.754c-10.455,41.983-81.128,19.285-104.052,13.589l18.562-74.404
+                      C306.28,314.65,379.774,325.975,368.859,369.754z M379.302,260.846c-9.527,38.187-68.358,18.781-87.442,14.023l16.828-67.489
+                      C327.767,212.14,389.234,221.02,379.302,260.846z"/>
+                            
+                  </svg>
+                  </div>
+                <h1 class="_mg-t-md show-on-scroll inline-photo" >Lorem, <br> Ipsum.</h1> 
+                <h6 class="show-on-scroll inline-photo">
+                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur totam reprehenderit ex, eum sunt aliquid alias possimus dolore at, velit, eos delectus tempora pariatur similique minima rerum? Praesentium, eum perferendis!
+                </h6> 
+                <button id="get-started-btn" class="started-button show-on-scroll inline-photo">Get Started!</button>
+                <button id="get-started-btn" class="guide-button show-on-scroll inline-photo">Helpguide</button>  
+                <div class="scroll-prompt" scroll-prompt="" ng-show="showPrompt" style="opacity: 1;">
+                    <div class="scroll-prompt-arrow-container">
+                        <div class="scroll-prompt-arrow"><div></div></div>
+                        <div class="scroll-prompt-arrow"><div></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 show-on-scroll inline-photo" style="padding: 0;">
+            <div>
+                <img style="width: 100%; height: 93vh;" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2944&q=80" class="home-image"alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 class="_mg-t-md show-on-scroll inline-photo" style="margin-top: 150px; margin-left: 100px;">All About Ethereal</h3> 
+<div class="container-fluid" style="margin-top: 30px;">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="image-div show-on-scroll inline-photo"> 
+                <img src="https://images.unsplash.com/photo-1516245834210-c4c142787335?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80" class="home-image" alt="">  
+            </div>   
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="grid_1-2 grid_1-sm show-on-scroll inline-photo" style="width: 90%;"> 
+                <h4>SUBHEADING</h4> 
+                <h2>Lorem ipsum dolor sit amet.</h2> 
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis, id nemo neque eaque cupiditate magni repudiandae nihil fuga sequi laboriosam vitae quisquam quam distinctio mollitia porro quae pariatur sit assumenda.
+                </p> 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid grey-container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="grid_1-2 grid_1-sm show-on-scroll inline-photo" style="width: 90%;height: 100%;"> 
+                <h4>SUBHEADING</h4> 
+                <h2>Lorem ipsum dolor sit amet.</h2> 
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis, id nemo neque eaque cupiditate magni repudiandae nihil fuga sequi laboriosam vitae quisquam quam distinctio mollitia porro quae pariatur sit assumenda.
+                </p> 
+            </div> 
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="image-div show-on-scroll inline-photo"> 
+                <img src="https://plus.unsplash.com/premium_photo-1672914187190-3bb9eaed6a27?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80" class="home-image" alt=""> 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="image-div show-on-scroll inline-photo"> 
+                <img src="https://images.unsplash.com/photo-1526378800651-c32d170fe6f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80" class="home-image" alt="">  
+            </div>   
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="grid_1-2 grid_1-sm show-on-scroll inline-photo" style="width: 90%;"> 
+                <h4>SUBHEADING</h4> 
+                <h2>Lorem ipsum dolor sit amet.</h2> 
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis, id nemo neque eaque cupiditate magni repudiandae nihil fuga sequi laboriosam vitae quisquam quam distinctio mollitia porro quae pariatur sit assumenda.
+                </p> 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid grey-container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="grid_1-2 grid_1-sm show-on-scroll inline-photo"style="width: 90%;"> 
+                <h4>SUBHEADING</h4> 
+                <h2>Lorem ipsum dolor sit amet.</h2> 
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis, id nemo neque eaque cupiditate magni repudiandae nihil fuga sequi laboriosam vitae quisquam quam distinctio mollitia porro quae pariatur sit assumenda.
+                </p> 
+            </div> 
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="image-div show-on-scroll inline-photo"> 
+                <img src="https://images.unsplash.com/photo-1639815188546-c43c240ff4df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80" class="home-image" alt=""> 
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+<footer class="container-fluid" style="padding: 0;"> 
+    <div class="row" style="width: 100vw;">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <ul style="list-style: none; display: flex;"> 
+                <li> 
+                    <a style=" color: white; margin: 0 10px;" rel="nofollow noreferrer" href="mailto:punerva21@gmail.com"> Contact us </a> 
+                </li> 
+                <li> 
+                    <a style=" color: white; margin: 0 10px;" href="#"> Github Repository </a> 
+                </li> 
+                <li> 
+                    <a style=" color: white; margin: 0 10px;" rel="nofollow noreferrer" target="_blank" href="#"> Guide </a> 
+                </li> 
+            </ul> 
+        </div>
+    <div class="col-lg-6 col-md-12 col-sm-12" style="text-align: right;"> 
+        © 2023 Ethereal.
+    </div> 
+</div>
+</footer>
+<script>
+    var scroll = window.requestAnimationFrame ||
+  function(callback){ window.setTimeout(callback, 1000/60)};
+  var elementsToShow = document.querySelectorAll('.show-on-scroll'); 
+
+  function loop() {
+
+  Array.prototype.forEach.call(elementsToShow, function(element){
+    if (isElementInViewport(element)) {
+      element.classList.add('is-visible');
+    } else {
+      element.classList.remove('is-visible');
+    }
+  });
+
+  scroll(loop);
+}
+
+loop();
+
+function isElementInViewport(el) {
+if (typeof jQuery === "function" && el instanceof jQuery) {
+  el = el[0];
+}
+var rect = el.getBoundingClientRect();
+return (
+  (rect.top <= 0
+    && rect.bottom >= 0) || (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.top <= (window.innerHeight || document.documentElement.clientHeight))
+  ||
+  (rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+);
+}
+</script>
+{% endblock %}

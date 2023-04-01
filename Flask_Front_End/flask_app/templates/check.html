@@ -1,0 +1,161 @@
+{%extends "layout.html"%} {% block head %}
+<!-- Page title -->
+<title>Unicorn</title>
+<!-- Link to respective CSS stylesheet -->
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}" />
+<style>
+    .page {
+    max-width: 80vw;
+    margin: 10px auto 30px auto;}
+
+  h3 {
+    font-size: 90%;
+    font-weight: normal;
+    margin: 0;}
+
+  p {
+    font-family: 'Quattrocento Sans', sans-serif;
+    line-height: 1.4em;}
+
+  a {
+    text-decoration: none;}
+
+  /********** TABS **********/
+  .tab-list {
+    margin: 0;
+    padding: 0;}
+
+  .tab-list li {
+    display: inline-block;
+    list-style-type: none;
+    background-color: #303030;
+    border-top-left-radius: 0em;
+    border-top-right-radius: 0em;
+    font-family: 'Noto Sans HK', sans-serif;
+    text-transform: uppercase;
+    }
+
+  .tab-list li a {
+    color: #FF8C32;
+    display: block;
+    padding: 8px;}
+
+  .tab-list li.active, .tab-list li.hover {
+    background-color: white;
+    border-top-left-radius: 0em;
+    border-top-right-radius: 0em;}
+
+  .tab-list li.active a, .tab-list li a:hover {
+    color: black;
+    background-color: white;
+    border-top-left-radius: 0em;
+    border-top-right-radius: 0em;}
+
+  .tab-panel {
+    display: none;
+    background-color: white;
+    border-top-right-radius: 0em;
+    border-bottom-left-radius: 0em;
+    border-bottom-right-radius: 0em;
+    color: black;
+    min-height: 400px;
+    overflow: auto;}
+
+  .tab-panel.active {
+    display: block;}
+
+  .tab-panel p {
+    margin: 20px;}
+
+</style>
+{% endblock %} 
+
+{% block content %} 
+<div class="container" style="padding-top: 120px;">
+    <h1>Check page</h1>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- Tabs Js -->
+
+
+<section class="page">
+   <div class="tabs">
+      <ul class="tab-list">
+         <li class="active">
+            <a class="tab-control" href="#tab-1">
+               <h3>Mp4</h3>
+            </a>
+         </li>
+         <li>
+            <a class="tab-control" href="#tab-2">
+               <h3>Img</h3>
+            </a>
+         </li>
+         <li>
+            <a class="tab-control" href="#tab-3">
+               <h3>Mp3</h3>
+            </a>
+         </li>
+      </ul>
+      <div class="tab-panel active" id="tab-1">
+         <p>
+            <div class="row" style="margin-left: 20px;">
+                   <div class="col-lg-6 col-md-12 col-sm-12 upload-details column">
+                       <h1>Content</h1>
+                       <div class="upload-form">
+                           <div class="span-col">
+                               <label class="upload-label" htmlFor="MName">Movie Name</label>
+                               
+                               <input type="text" id="MName" name="MName" class="upload-box widen" />
+                               <button class="btn btn-success">Check MP4 Copyright Status</button>
+                           </div>       
+                       </div>
+                   </div>
+               </div>
+           </p>
+       </div>
+           <div class="tab-panel" id="tab-2">
+               <p>
+           <div class="col-lg-6 col-md-12 col-sm-12 upload-file column" style="margin-left: 20px;">
+               <h1>Upload Files</h1>
+               <div class="file-uploader">
+                   <!-- <img style="height: 300px; width: 100%; object-fit: cover;" class='upload-img' src="https://images.unsplash.com/photo-1680034200882-698487d46a79?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80" alt="cloud illustration" /> -->
+                   <input name="file" class="input-upload" type='file' />
+                   <button  class="btn btn-success" style="margin: 20px 0;">Check Img Copyright Status</button>
+                  </div>
+              </div>
+         </p>
+      </div>
+      <div class="tab-panel" id="tab-3">
+         <p>
+           Upload Mp3 Media
+         </p>
+         <h1>Will be added in the future...</h1>
+      </div>
+   </div>
+</section>
+</div>
+<script>
+   $('.tab-list').each(function(){
+ var $this = $(this);
+ var $tab = $this.find('li.active');
+ var $link = $tab.find('a');
+ var $panel = $($link.attr('href'));
+
+ $this.on('click', '.tab-control', function(e) {
+   e.preventDefault();
+   var $link = $(this),
+       id = this.hash;
+
+   if (id && !$link.is('.active')) {
+     $panel.removeClass('active');
+     $tab.removeClass('active');
+
+     $panel = $(id).addClass('active');
+     $tab = $link.parent().addClass('active');
+   }
+ });
+});
+</script>
+{% endblock %}
