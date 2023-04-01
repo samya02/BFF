@@ -162,7 +162,7 @@ def brand_name():
             data={
                 "text": input,
             },
-            headers={'api-key': '9da50a62-c16d-4fe2-8629-1318b4675c1e'}
+            headers={'api-key': 'quickstart-QUdJIGlzIGNvbWluZy4uLi4K'}
         )
         output_img = r.json()
         output_img = output_img['output_url']
