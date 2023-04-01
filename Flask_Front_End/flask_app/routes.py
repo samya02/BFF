@@ -19,9 +19,9 @@ import matplotlib.pyplot as plt
 from serpapi import GoogleSearch
 from urllib.parse import urlparse
 
-app.config['UPLOAD_FOLDER'] = '/Users/punerva/Desktop/BFF/Flask_Front_End/flask_app/static/img'
-app.config['UPLOAD_FOLDER2'] = '/Users/punerva/Desktop/BFF/Flask_Front_End/flask_app'
-dir_path = os.path.dirname(os.path.realpath('/Users/punerva/Desktop/BFF/Flask_Front_End/flask_app'))
+app.config['UPLOAD_FOLDER'] = 'D:/github/BFF_Latest/BFF/Flask_Front_End/flask_app/static/img/'
+app.config['UPLOAD_FOLDER2'] = 'D:/github/BFF_Latest/BFF/Flask_Front_End/flask_app/'
+dir_path = os.path.dirname(os.path.realpath('D:/github/BFF_Latest/BFF/Flask_Front_End/flask_app/'))
 
 def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
@@ -209,6 +209,9 @@ def checkImg():
             list_of_images.append(image_link)
         
         print("Total Matches Found are:", len(visual_matches))
+        def cv_imread(file_path):
+            cv_img = cv2.imdecode(np.fromfile(file_path, dtype=np.uint8), -1)
+            return cv_img
 
         def img_preprocessing(test):
             img2 = io.imread(test)
@@ -217,15 +220,15 @@ def checkImg():
             return img2
         
         def check_similarity(img1, img2):
-            h, w = img1.shape
+            h, w = img1.shape[:2]
             diff = cv2.subtract(img1, img2)
             err = np.sum(diff**2)
             mse = err/(float(h*w))
             return mse
         
-        image_path = os.path.join(dir_path, tmp_img)
+        image_path = "D:/github/BFF_Latest/BFF/Flask_Front_End/flask_app/84a664c3-d0a6-11ed-a941-955ff484809f_test.jpg"
         
-        ori_img = cv2.imread(image_path, 1)
+        ori_img = cv_imread(image_path)
         print(ori_img)
         ori_img = cv2.cvtColor(ori_img, 1)
         ori_img = cv2.resize(ori_img, (240, 240))
