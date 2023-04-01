@@ -18,8 +18,12 @@
 <div class="option container" style="padding-top: 150px;">
     <h1>Action Center</h1>
     <ul style="list-style: none; display: flex; width: 200px; justify-content: space-between; padding: 0;">
-    <li><a class="btn btn-success" href="{{url_for('upload')}}">upload</a></li>
-    <li><a class="btn btn-success" href="{{url_for('check')}}">check</a></li>
+    <li><a class="btn btn-success" style="margin: 0 20px;" href="{{url_for('upload')}}">upload</a></li>
+    </ul>
+    <ul style="list-style: none; display: flex; width: 200px; justify-content: space-between; padding: 0;">
+    <li><a class="btn btn-success" style="margin: 0 20px;" href="{{url_for('checkImg')}}">check Img</a></li>
+    <li><a class="btn btn-success" style="margin: 0 20px;" href="{{url_for('checkMP4')}}">check MP4</a></li>
+    <li><a class="btn btn-success" style="margin: 0 20px;" href="{{url_for('checkMP3')}}">check MP3</a></li>
     </ul>
 </div>
 </div>

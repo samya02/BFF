@@ -88,3 +88,17 @@ class Brand_Name(FlaskForm):
     input = StringField('Input a phrase regarding your startup',
                         validators=[DataRequired()])
     submit = SubmitField('Generate Brand Name')
+
+class CheckImgForm(FlaskForm):
+    pic = FileField('Upload Img here')
+    submit = SubmitField('Check Img Copyright Status')
+
+class CheckMP4Form(FlaskForm):
+    input = StringField('Input movie name',
+                        validators=[DataRequired()])
+    submit = SubmitField('Check movie, generate URLs')
+
+class CheckMP3Form(FlaskForm):
+    input = StringField('Input movie name',
+                        validators=[DataRequired()])
+    submit = SubmitField('Check movie, generate URLs')

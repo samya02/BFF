@@ -1,0 +1,109 @@
+{%extends "layout.html"%} {% block head %}
+<!-- Page title -->
+<title>Unicorn</title>
+<!-- Link to respective CSS stylesheet -->
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}" />
+<style>
+    .page {
+    max-width: 80vw;
+    margin: 10px auto 30px auto;}
+
+  h3 {
+    font-size: 90%;
+    font-weight: normal;
+    margin: 0;}
+
+  p {
+    font-family: 'Quattrocento Sans', sans-serif;
+    line-height: 1.4em;}
+
+  a {
+    text-decoration: none;}
+
+  /********** TABS **********/
+  .tab-list {
+    margin: 0;
+    padding: 0;}
+
+  .tab-list li {
+    display: inline-block;
+    list-style-type: none;
+    background-color: #303030;
+    border-top-left-radius: 0em;
+    border-top-right-radius: 0em;
+    font-family: 'Noto Sans HK', sans-serif;
+    text-transform: uppercase;
+    }
+
+  .tab-list li a {
+    color: #FF8C32;
+    display: block;
+    padding: 8px;}
+
+  .tab-list li.active, .tab-list li.hover {
+    background-color: white;
+    border-top-left-radius: 0em;
+    border-top-right-radius: 0em;}
+
+  .tab-list li.active a, .tab-list li a:hover {
+    color: black;
+    background-color: white;
+    border-top-left-radius: 0em;
+    border-top-right-radius: 0em;}
+
+  .tab-panel {
+    display: none;
+    /* background-color: white; */
+    border-top-right-radius: 0em;
+    border-bottom-left-radius: 0em;
+    border-bottom-right-radius: 0em;
+    /* color: black; */
+    border: 2px solid;
+    min-height: 400px;
+    overflow: auto;}
+
+  .tab-panel.active {
+    display: block;}
+
+  .tab-panel p {
+    margin: 20px;}
+
+</style>
+{% endblock %} 
+
+{% block content %} 
+<div class="container" style="padding-top: 120px;">
+    <h1>Check MP4 page</h1>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- Tabs Js -->
+<div class="row" style="margin-left: 20px;">
+  <div class="col-lg-6 col-md-12 col-sm-12 upload-details column">
+      <!-- <h1>Content</h1> -->
+      <div class="upload-form">
+          <div class="span-col">
+           <form method="POST" action="" enctype="multipart/form-data">
+             {{ form1.hidden_tag() }}
+             <fieldset>
+                   <div class="form-group">
+                     {{ form1.input.label(class="form-label") }}
+                     {{ form1.input(class="form-control") }}
+                 </div>
+             </fieldset>
+             <div class="form-group">
+                 {{ form1.submit(class="btn btn-success") }}
+             </div>
+         </form>
+          </div>       
+      </div>
+      {% if output %} 
+       <div class="conatiner" style="width: 80vw; margin: auto;">
+         <p style="font-size: large;"><b>Output:</b> {{ output|safe }}
+         </p>
+       </div>
+       {% endif %} 
+  </div>
+</div>
+</div>
+{% endblock %}
