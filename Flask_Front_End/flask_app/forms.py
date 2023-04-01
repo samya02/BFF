@@ -58,3 +58,33 @@ class LoginForm(FlaskForm):
 class UploadImgForm(FlaskForm):
     pic = FileField('Upload Img here')
     submit = SubmitField('Check copyright')
+
+class Add_Legal_Advisor(FlaskForm):
+    pic = FileField('Your Profile Photo')
+    profile = StringField('LinkedIn Profile Link',
+                        validators=[DataRequired()])
+    description = StringField('Job Description',
+                        validators=[DataRequired()])
+    city = StringField('City',
+                        validators=[DataRequired()])
+    phone = StringField('Phone', validators=[DataRequired()])
+    country = StringField('Country',
+                        validators=[DataRequired()])
+    role = StringField('Role (Legal Advisor)',
+                        validators=[DataRequired()])
+    awards = IntegerField('Awards',
+                        validators=[DataRequired()])
+    cases = IntegerField('Cases',
+                        validators=[DataRequired()])
+    advised = IntegerField('Advised',
+                        validators=[DataRequired()])
+    union = IntegerField('Union',
+                        validators=[DataRequired()])
+    year = IntegerField('Year of Experience',
+                        validators=[DataRequired()])
+    submit = SubmitField('Submit Application')
+
+class Brand_Name(FlaskForm):
+    input = StringField('Input a phrase regarding your startup',
+                        validators=[DataRequired()])
+    submit = SubmitField('Generate Brand Name')

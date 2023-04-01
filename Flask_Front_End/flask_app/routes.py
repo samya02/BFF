@@ -1,9 +1,9 @@
 from flask_app import app
 import secrets
 from PIL import Image
-from flask import render_template, url_for, flash, redirect, request, make_response, abort, current_app, jsonify
-from flask_app.models import User, Image
-from flask_app.forms import RegistrationForm, LoginForm, UploadImgForm
+from flask import render_template, url_for, flash, redirect, request, request
+from flask_app.models import User, Image, Legal_Advisor
+from flask_app.forms import RegistrationForm, LoginForm, UploadImgForm, Add_Legal_Advisor, Brand_Name
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_app import db, bcrypt, admin
 from werkzeug.utils import secure_filename
@@ -93,3 +93,80 @@ def upload():
 @app.route('/check')
 def check():
     return render_template("check.html")
+
+@app.route('/legal_advisor_apply', methods=['GET', 'POST'])
+@login_required
+def legal_advisor_apply():
+    form = Add_Legal_Advisor() 
+    if form.validate_on_submit():
+        advisor = Legal_Advisor(
+            name = current_user.name,
+            email = current_user.email,
+            phone = form.phone.data, 
+            user = current_user.id, 
+            profile = form.profile.data,
+            description = form.description.data,
+            city = form.city.data,
+            country = form.country.data,
+            role = form.role.data,
+            awards = form.awards.data,
+            cases = form.cases.data,
+            advised = form.advised.data,
+            union = form.union.data,
+            year = form.year.data,
+        )
+
+        advisor.pic = request.files['pic']
+        # Grab Image Name
+        pic_filename = secure_filename(advisor.pic.filename)
+        pic_name = str(uuid.uuid1()) + "_" + pic_filename
+        # Save that image
+        file = request.files['pic']
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], pic_name))
+        # Change it to string to save to db
+        advisor.pic = pic_name
+
+        db.session.add(advisor)
+        db.session.commit()
+        return redirect(url_for('legal_issues'))
+    return render_template("legal_advisor_apply.html", form=form)
+
+@app.route('/legal_issues')
+@login_required
+def legal_issues():
+    advisors = Legal_Advisor.query.all()
+    return render_template("legal_issues.html", advisors=advisors)
+
+@app.route("/brand_name", methods=['GET', 'POST'])
+def brand_name():
+    form = Brand_Name()
+    if form.validate_on_submit():
+        input = form.input.data
+        import requests
+
+        API_URL = "https://api-inference.huggingface.co/models/abdelhalim/Rec_Business_Names"
+        headers = {"Authorization": "Bearer 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"}
+
+        def query(payload):
+            response = requests.post(API_URL, headers=headers, json=payload)
+            return response.json()
+            
+        output = query({
+            "inputs": input,
+        })
+        print(output)
+        output = output[0]["generated_text"]
+
+        r = requests.post(
+            "https://api.deepai.org/api/logo-generator",
+            data={
+                "text": input,
+            },
+            headers={'api-key': '9da50a62-c16d-4fe2-8629-1318b4675c1e'}
+        )
+        output_img = r.json()
+        output_img = output_img['output_url']
+        print(output_img)
+
+        return render_template('brand_name.html', output=output, form=form, output_img=output_img)
+    return render_template('brand_name.html', form=form)

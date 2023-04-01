@@ -53,12 +53,13 @@
 
   .tab-panel {
     display: none;
-    background-color: white;
+    /* background-color: white; */
     border-top-right-radius: 0em;
     border-bottom-left-radius: 0em;
     border-bottom-right-radius: 0em;
-    color: black;
+    /* color: black; */
     min-height: 480px;
+    border: 2px solid;
     overflow: auto;}
 
   .tab-panel.active {
@@ -69,6 +70,10 @@
 
     input[type=text] {
         width: 90%;
+        background-color: #06113C;
+        border: 1px solid #FF8C32;
+        margin-bottom: 10px;
+        /* border-bottom: 1px solid #FF8C32; */
     }
 </style>
 {% endblock %} 
